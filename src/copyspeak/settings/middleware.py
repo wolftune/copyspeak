@@ -19,5 +19,6 @@ MIDDLEWARE_CLASSES = tuple(x for x in (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware'
             if "pagination" in INSTALLED_APPS else None,
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'fnpdjango.middleware.SetRemoteAddrFromXRealIP'
 ) if x is not None)
