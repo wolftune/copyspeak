@@ -255,10 +255,16 @@ $g22: lighten($g12, 10%);
 }
 
 
-.flatpage {
+.text-page-wrapper {
     background: #ddd;
     color: black;
-    padding: 3em;
+
+    .text-page {
+        max-width: 60em;
+        margin: auto;
+        padding: 3em;
+        
+    }
 }
 
 
