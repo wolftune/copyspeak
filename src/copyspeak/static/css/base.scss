@@ -1,0 +1,267 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: black;
+    color: #ccc;
+    font-family: Lato;
+}
+
+header {
+    font-size: 16px;
+
+    a {
+        text-decoration: none;
+        color: #ddd;
+        display: block;
+        padding: .5em;
+        float: left;
+
+        &:before {
+            content: url(/static/img/brackets.png);
+            margin-right: .5em;
+            vertical-align:middle;
+        }
+    }
+
+    #buy {
+        padding: 4px 10px 0 10px;
+        float: right;
+    }
+}
+
+.fnp-logo {
+    text-align:right;
+    margin-top: 8.5em;
+    text-align: center;
+
+    img {
+        height: 4em;
+    }
+}
+
+h1.main {
+    margin-left: 1em;
+    font-size: 5vw;
+    @media screen and (min-width: 45em) {
+        font-size: 2vw;
+    }
+}
+
+#intro {
+    background-color: #222;
+}
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    left: 4.75em;
+    top: 6.75em;
+    bottom: 6.75em;
+    right: 4.75em;
+}
+
+.right-desc-container {
+    @extend .desc-container;
+    top: 14em;
+}
+
+.card-container {
+    display: block;
+    line-height: 1.3em;
+    position: relative;
+    font-size: 4vw;
+    clear: both;
+
+    width: 100%;
+    @media screen and (min-width: 45em) {
+        font-size: 2vw;
+        width: 50%;
+        display: inline-block;
+    }
+
+    .card-dummy {
+        padding-top: 148.39%;
+    }
+}
+
+.three-container {
+    @extend .card-container;
+    font-size: 4vw;
+
+    @media screen and (min-width: 45em) {
+        font-size: 1.3333vw;
+        width: 33.33%;
+        display: inline-block;
+    }
+}
+
+
+
+.list-card {
+    @extend .card;
+    font-size: 1.5em;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    ul {
+        column-count: 2;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-gap: 1.5em;
+        -moz-column-gap: 1.5em;;
+        -webkit-column-gap: 1.5em;;
+
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+
+        li {
+            margin-bottom: .6em
+        }
+    }
+}
+
+
+.card {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    h1 {
+        font-size: 1.5em;
+        margin-top: 1.5em;
+        width: 14.9em;
+        text-align: right;
+        text-transform: uppercase;
+
+        line-height: 1.3em;
+
+        .next {
+            display: block;
+            margin-right: 2em;
+        }
+    }
+
+    a {
+        color: #ccc;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    %body {
+        
+        p {
+            font-size: .85em;
+            margin: .5em 0;
+        }
+    }
+    .examples {
+        @extend %body;
+        text-transform: uppercase;
+        text-align: center;
+
+        p {
+            font-size: 1em;
+            line-height: 1.2em;
+        }
+    }
+    .usage {
+        @extend %body;
+        hyphens: auto;
+        -moz-hyphens: auto;
+    }
+    .recommendations {
+        @extend %body;
+        hyphens: auto;
+        -moz-hyphens: auto;
+    }
+
+    .inside-card {
+        margin: 0 5em;
+    }
+}
+
+.chaotic {
+    background-image: url(/static/img/bg/chaotic.png);
+    background-size: 100%;
+}
+.neutral {
+    background-image: url(/static/img/bg/neutral.png);
+    background-size: 100%;
+
+    color: #fff;
+    a { color: #fff; }
+}
+.lawful {
+    background-image: url(/static/img/bg/lawful.png);
+    background-size: 100%;
+}
+.info {
+    background-image: url(/static/img/bg/info.png);
+    background-size: 100%;
+
+    color: #656263;
+    a { color: #656263; }
+}
+
+
+
+$g11: #85db81;
+$g12: darken(#3db814, 10%);
+$g21: lighten($g11, 10%);
+$g22: lighten($g12, 10%);
+.btn {
+    background: #fac878;
+    background-image: -webkit-linear-gradient(top, $g11, $g12);
+    background-image: -moz-linear-gradient(top, $g11, $g12);
+    background-image: -ms-linear-gradient(top, $g11, $g12);
+    background-image: -o-linear-gradient(top, $g11, $g12);
+    background-image: linear-gradient(to bottom, $g11, $g12);
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 1em double white;
+    color: #ffffff;
+    padding: 2em;
+    text-decoration: none;
+    cursor: pointer;
+
+    font-size: 3.75vw;
+    @media screen and (min-width: 45em) {
+        font-size: 1.25vw;
+    }
+}
+
+.btn:hover {
+    background: #fcba58;
+    background-image: -webkit-linear-gradient(top, $g21, $g22);
+    background-image: -moz-linear-gradient(top, $g21, $g22);
+    background-image: -ms-linear-gradient(top, $g21, $g22);
+    background-image: -o-linear-gradient(top, $g21, $g22);
+    background-image: linear-gradient(to bottom, $g21, $g22);
+    text-decoration: none;
+}
+
+
+.flatpage {
+    background: #ddd;
+    color: black;
+    padding: 3em;
+}
+
+
+footer {
+    margin: 3em 1em;
+    font-size: .8em;
+}

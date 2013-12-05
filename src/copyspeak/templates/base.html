@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load i18n static %}
+{% load fnp_common fnp_share fnp_lang macros %}
+{% load compressed %}
+{% load tracking_code from piwik_tags %}
+{% load chunk from chunks %}
+
+{% macro title %}
+    {% block title %}{% endblock %}
+{% endmacro %}
+{% macro site_name %}CopySpeak.org{% endmacro %}
+
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+       <title>{% block full_title %}{% usemacro title %} | {% usemacro site_name %}{% endblock %}</title>
+       <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}" />
+        {% compressed_css 'base' %}
+
+        <meta charset="UTF-8" />
+        <meta property='og:url' content='{% block "ogurl" %}{{ "/"|build_absolute_uri:request }}{% endblock %}' />
+        <meta property='og:title' content='{% block og_title %}{% usemacro title %}{% endblock %}' />
+        <meta property='og:site_name' content='{% usemacro site_name %}' />
+        <meta property='og:description' content='{% block og_description %}{% endblock %}' />
+        <meta property='og:type' content='{% block og_type %}website{% endblock %}' />
+        <meta property='og:image' content='{% block og_image %}{% endblock %}' />
+        <meta property='og:locale' content='pl_PL' />
+    </head>
+    <body>
+        <header>
+            <a href="/">CopySpeak.org: How to talk about copyright?</a>
+
+<div id="buy">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RCTRCCV5QB3UC">
+<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+</form>
+</div>
+
+            <div style="clear: both"></div>
+        </header>
+
+        {% block body %}{% endblock %}
+
+        <footer>
+            {% chunk 'footer' %}
+        </footer>
+    <!--script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js" charset="utf-8"></script-->
+    {% compressed_js 'base' %}
+    {% tracking_code %}
+    </body>
+</html>

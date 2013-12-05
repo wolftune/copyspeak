@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+
+{% block title %}{{ object }}{% endblock %}
+
+
+{% block body %}
+
+<div class="card-container">
+<div class="card-dummy"></div>
+<section class="card front {{ object.alignment }}">
+    <h1>{{ object }}</h1>
+
+    <div class="desc-container">
+        <section class="examples">
+            {{ object.examples|linebreaks|safe }}
+        </section>
+
+        <section class="usage">
+            <p>/used:/</p>
+            {{ object.usage|linebreaks|safe }}
+        </section>
+    </div>
+
+</section></div><div class="card-container"><div class="card-dummy"></div><section class="card back {{ object.alignment }}">
+
+    <div class="fnp-logo">
+        <a href="//nowoczesnapolska.org.pl/about-us/">
+            
+            
+            <img 
+                {% if object.alignment == 'neutral' %}
+                    src="{% static 'img/logofnp_white.png' %}"
+                {% else %}
+                    src="{% static 'img/logofnp.png' %}"
+                {% endif %}
+                alt="Modern Poland Foundation">
+        </a>
+    </div>
+
+    <div class="right-desc-container">
+        <section class="recommendations">
+            <p>/recommendations:/</p>
+            {{ object.recommendations|linebreaks|safe }}
+        </section>
+    </div>
+
+</section></div>
+
+<!--section>
+{% for word in words %}
+    <a href="{{ word.get_absolute_url }}">{{ word }}</a>
+{% endfor %}
+</section-->
+
+
+
+{% endblock %}

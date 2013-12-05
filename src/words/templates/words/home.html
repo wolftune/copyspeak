@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load chunk from chunks %}
+
+{% block title %}How to talk about copyright?{% endblock %}
+
+{% block body %}
+
+<section id="intro">
+
+<div class="three-container">
+<div class="card-dummy"></div>
+<section class="card">
+     <h1>{% chunk 'intro-1-title' raw=1 %}</h1>
+
+    <div class="inside-card">
+        <h1>{% chunk 'intro-1' %}</h1>
+    </div>
+
+</section>
+</div><div class="three-container">
+<div class="card-dummy"></div>
+<section class="card info">
+
+    <h1>{% chunk 'intro-2-title' raw=1 %}</h1>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" 
+        style="float: right;">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="RCTRCCV5QB3UC">
+    <button name="submit" class="btn">
+        Order your<div style="font-size: 2.5em; ">&euro;7</div>deck now!
+    </button>
+    </form>
+
+    <div class="inside-card">
+        {% chunk 'intro-2' %}
+    </div>
+
+
+
+</section>
+</div><div class="three-container">
+<div class="card-dummy"></div>
+<section class="card">
+    <h1>{% chunk 'intro-3-title' raw=1 %}</h1>
+
+    <div class="inside-card">
+        <h1>{% chunk 'intro-3' %}</h1>
+    </div>
+</section>
+</div>
+
+
+</section>
+
+<section>
+<h1 class="main">The words</h1>
+
+<div class="three-container">
+<div class="card-dummy"></div>
+<section class="list-card lawful">
+<ul>
+{% for word in words.lawful %}
+    <li><a href="{{ word.get_absolute_url }}">{{ word }}</a></li>
+{% endfor %}
+</ul>
+</section>
+</div><div class="three-container">
+<div class="card-dummy"></div>
+<section class="list-card neutral">
+<ul>
+{% for word in words.neutral %}
+    <li><a href="{{ word.get_absolute_url }}">{{ word }}</a></li>
+{% endfor %}
+</ul>
+</section>
+</div><div class="three-container">
+<div class="card-dummy"></div>
+<section class="list-card chaotic">
+<ul>
+{% for word in words.chaotic %}
+    <li><a href="{{ word.get_absolute_url }}">{{ word }}</a></li>
+{% endfor %}
+</ul>
+</section>
+</div>
+
+</section>
+{% endblock %}
