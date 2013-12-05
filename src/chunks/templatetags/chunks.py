@@ -20,7 +20,6 @@ def chunk(key, cache_time=0, raw=False):
         n = Chunk(key=key)
         n.save()
         return ''
-    print content
     return content.raw if raw else content
 
 

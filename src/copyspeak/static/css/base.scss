@@ -264,4 +264,13 @@ $g22: lighten($g12, 10%);
 footer {
     margin: 3em 1em;
     font-size: .8em;
+
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
