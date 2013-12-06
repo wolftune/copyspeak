@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load textile_pl from fnp_markup %}
+{% load textile_en from fnp_markup %}
 
 {% block title %}{{ flatpage.title }}{% endblock %}
 
@@ -7,7 +7,7 @@
 {% block body %}
 <div class="text-page-wrapper">
 <article class="text-page">
-{{ flatpage.content|textile_pl }}
+{{ flatpage.content|textile_en }}
 </article>
 </div>
 {% endblock %}

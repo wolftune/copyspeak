@@ -9,7 +9,7 @@ django-piwik
 #TODO: pyScss support, for now just install sass
 
 django_cas>=2.1,<2.2
-fnpdjango<0.2
+fnpdjango>=0.1.9.1,<0.2
 
 ipython
 

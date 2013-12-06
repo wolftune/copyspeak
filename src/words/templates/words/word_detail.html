@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
-
+{% load textile_en from fnp_markup %}
 
 {% block title %}{{ object }}{% endblock %}
 
@@ -14,12 +14,12 @@
 
     <div class="desc-container">
         <section class="examples">
-            {{ object.examples|safe|linebreaks }}
+            {{ object.examples|textile_en }}
         </section>
 
         <section class="usage">
             <p>/used:/</p>
-            {{ object.usage|safe|linebreaks }}
+            {{ object.usage|textile_en }}
         </section>
     </div>
 
@@ -42,7 +42,7 @@
     <div class="right-desc-container">
         <section class="recommendations">
             <p>/recommendations:/</p>
-            {{ object.recommendations|safe|linebreaks }}
+            {{ object.recommendations|textile_en }}
         </section>
     </div>
 
