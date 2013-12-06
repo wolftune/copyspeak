@@ -25,10 +25,11 @@ PIPELINE_CSS = {
     },
 }
 PIPELINE_JS = {
-    'base': {
+    'word_detail': {
         'source_filenames': (
+            'js/word_detail.js',
         ),
-        'output_filename': 'compressed/base.js',
+        'output_filename': 'compressed/word_detail.js',
     },
 }
 

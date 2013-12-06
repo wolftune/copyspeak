@@ -24,6 +24,11 @@ header {
             margin-right: .5em;
             vertical-align:middle;
         }
+
+        &:hover {
+            color: white;
+            text-decoration: underline;
+        }
     }
 
     #buy {
@@ -212,8 +217,8 @@ h1.main {
     background-image: url(/static/img/bg/neutral.png);
     background-size: 100%;
 
-    color: #fff;
-    a { color: #fff; }
+    color: #555;
+    a { color: #555; }
 }
 .lawful {
     background-image: url(/static/img/bg/lawful.png);
@@ -294,4 +299,45 @@ footer {
             text-decoration: underline;
         }
     }
+}
+
+
+%prevnext {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(64,64,64,.5);
+    z-index:100;
+    opacity: 0;
+    text-align: center;
+
+    span {
+        position: absolute;
+        top: 50%;
+        margin-top: -.5em;
+        left: 0;
+        width: 100%;
+        color: #000;
+    }
+
+    &:hover, &.active {
+        opacity: 1;
+    }
+
+    font-size: 8vw;
+    width: 16vw;
+    @media screen and (min-width: 45em) {
+        width: 8vw;
+        font-size: 4vw;
+    }
+}
+
+#previous-card {
+    @extend %prevnext;
+    left: 0;
+}
+#next-card {
+    @extend %prevnext;
+    right: 0;
 }

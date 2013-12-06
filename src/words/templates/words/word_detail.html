@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
+{% load compressed %}
 {% load textile_en from fnp_markup %}
 
 {% block title %}{{ object }}{% endblock %}
 
 
 {% block body %}
+
+<div class="a-card" style="position: relative">
+
+{% if previous %}
+<a id="previous-card" href="{{ previous.get_absolute_url }}" title="{{ previous }}"><span>&#9664;</span></a>
+{% endif %}
+
+{% if next %}
+<a id="next-card" href="{{ next.get_absolute_url }}" title="{{ next }}"><span>&#9654;</span></a>
+{% endif %}
+
 
 <div class="card-container">
 <div class="card-dummy"></div>
@@ -43,12 +55,9 @@
 
 </section></div>
 
-<!--section>
-{% for word in words %}
-    <a href="{{ word.get_absolute_url }}">{{ word }}</a>
-{% endfor %}
-</section-->
+</div>
 
 
+{% compressed_js 'word_detail' %}
 
 {% endblock %}

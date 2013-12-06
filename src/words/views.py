@@ -22,4 +22,6 @@ class WordView(DetailView):
         return {
             'object': object,
             'words': Word.objects.all(),
+            'previous': object.get_previous(),
+            'next': object.get_next(),
         }

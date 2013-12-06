@@ -28,3 +28,18 @@ class Word(models.Model):
 
     def get_absolute_url(self):
         return reverse('words_word', args=[self.slug])
+
+    def get_next(self):
+        try:
+            return Word.objects.filter(alignment=self.alignment, word__gt=self.word)[0]
+        except IndexError:
+            next_alignment = ALIGNMENTS[([a[0] for a in ALIGNMENTS].index(self.alignment) + 1) % len(ALIGNMENTS)][0]
+            return Word.objects.filter(alignment=next_alignment)[0]
+
+    def get_previous(self):
+        words = Word.objects.order_by('-word')
+        try:
+            return words.filter(alignment=self.alignment, word__lt=self.word)[0]
+        except IndexError:
+            prev_alignment = ALIGNMENTS[([a[0] for a in ALIGNMENTS].index(self.alignment) - 1) % len(ALIGNMENTS)][0]
+            return words.filter(alignment=prev_alignment)[0]
