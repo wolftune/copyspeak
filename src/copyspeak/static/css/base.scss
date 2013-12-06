@@ -34,7 +34,7 @@ header {
 
 .fnp-logo {
     text-align:right;
-    margin-top: 8.5em;
+    margin-top: 4em;
     text-align: center;
 
     img {
@@ -47,6 +47,15 @@ h1.main {
     font-size: 5vw;
     @media screen and (min-width: 45em) {
         font-size: 2vw;
+    }
+
+    a {
+        color: #ccc;
+        text-decoration: none;
+        &:hover {
+            color: white;
+            text-decoration: underline;
+        }
     }
 }
 
@@ -67,7 +76,7 @@ h1.main {
 
 .right-desc-container {
     @extend .desc-container;
-    top: 14em;
+    top: 10em;
 }
 
 .card-container {
@@ -215,7 +224,10 @@ h1.main {
     background-size: 100%;
 
     color: #656263;
-    a { color: #656263; }
+    a {color: #656263;}
+}
+.empty {
+    background-color: #222;
 }
 
 

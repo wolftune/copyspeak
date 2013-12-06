@@ -23,18 +23,13 @@
         </section>
     </div>
 
-</section></div><div class="card-container"><div class="card-dummy"></div><section class="card back {{ object.alignment }}">
+</section></div><div class="card-container"><div class="card-dummy"></div><section class="card back empty">
 
     <div class="fnp-logo">
         <a href="//nowoczesnapolska.org.pl/about-us/">
             
             
-            <img 
-                {% if object.alignment == 'neutral' %}
-                    src="{% static 'img/logofnp_white.png' %}"
-                {% else %}
-                    src="{% static 'img/logofnp.png' %}"
-                {% endif %}
+            <img src="{% static 'img/logofnp.png' %}"
                 alt="Modern Poland Foundation">
         </a>
     </div>
