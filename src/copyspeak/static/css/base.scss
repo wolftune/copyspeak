@@ -68,21 +68,6 @@ h1.main {
     background-color: #222;
 }
 
-.desc-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: absolute;
-    left: 4.75em;
-    top: 6.75em;
-    bottom: 6.75em;
-    right: 4.75em;
-}
-
-.right-desc-container {
-    @extend .desc-container;
-    top: 10em;
-}
 
 .card-container {
     display: block;
@@ -207,6 +192,38 @@ h1.main {
     .inside-card {
         margin: 0 5em;
     }
+
+    .desc-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        left: 4.75em;
+        top: 6.75em;
+        bottom: 6.75em;
+        right: 4.75em;
+
+        a {
+            color: #ccc;
+            border-bottom-width: 1px;
+            border-bottom-color: #ccc;
+            border-bottom-style: dotted;
+
+            &:hover {
+                color: white;
+                border-bottom-color: white;
+                text-decoration: none;
+            }
+        }
+        a[href^="http://"] {
+            border-bottom-style: dashed;
+        }
+    }
+
+    .right-desc-container {
+        @extend .desc-container;
+        top: 10em;
+    }
 }
 
 .chaotic {
@@ -219,6 +236,17 @@ h1.main {
 
     color: #555;
     a { color: #555; }
+
+    .desc-container {
+        a {
+            color: #555;
+            border-bottom-color: #555;
+            &:hover {
+                color: black;
+                border-bottom-color: black;
+            }
+        }
+    }
 }
 .lawful {
     background-image: url(/static/img/bg/lawful.png);
@@ -341,3 +369,4 @@ footer {
     @extend %prevnext;
     right: 0;
 }
+
