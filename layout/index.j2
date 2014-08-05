@@ -1,0 +1,74 @@
+{% extends "base.j2" %}
+
+{% block title %}How to talk about copyright?{% endblock %}
+
+{% block body %}
+
+<section id="intro">
+
+<div class="three-container">
+<div class="card-dummy"></div>
+<section class="card">
+     <h1>{% block intro1title %}{% endblock %}</h1>
+
+    <div class="inside-card">
+        {% block intro1 %}{% endblock %}
+    </div>
+
+</section>
+</div><div class="three-container">
+<div class="card-dummy"></div>
+<section class="card info">
+
+     <h1>{% block intro2title %}{% endblock %}</h1>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" 
+        style="float: right;">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="RCTRCCV5QB3UC">
+    <button name="submit" class="btn">
+        Order your<div style="font-size: 2.5em; ">&euro;7</div>deck now!
+    </button>
+    </form>
+
+    <div class="inside-card">
+        {% block intro2 %}{% endblock %}
+    </div>
+
+
+
+</section>
+</div><div class="three-container">
+<div class="card-dummy"></div>
+<section class="card">
+     <h1>{% block intro3title %}{% endblock %}</h1>
+
+    <div class="inside-card">
+        {% block intro3 %}{% endblock %}
+    </div>
+</section>
+</div>
+
+
+</section>
+
+<section>
+<h1 class="main"><a href="#glossary" id="glossary">The glossary</a></h1>
+
+{% for grp, words in site.content.walk_alignment_groups() -%}
+    {% if not loop.first -%}
+        <div class="three-container">
+        <div class="card-dummy"></div>
+        <section class="list-card {{ grp.name }}">
+        <ul>
+            {% for word in words %}
+                <li><a href="{{ content_url(word.url) }}">{{ word.meta.title }}</a></li>
+            {% endfor %}
+        </ul>
+        </section>
+        </div>
+    {%- endif %}
+{%- endfor %}
+
+</section>
+{% endblock %}

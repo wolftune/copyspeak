@@ -1,0 +1,15 @@
+{% extends "base.j2" %}
+
+{% block title %}{{ resource.meta.title }}{% endblock %}
+
+
+{% block body %}
+<div class="text-page-wrapper">
+<article class="text-page">
+{% filter markdown %}
+{% block content %}
+{% endblock %}
+{% endfilter %}
+</article>
+</div>
+{% endblock %}

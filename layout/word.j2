@@ -1,0 +1,66 @@
+{% extends "base.j2" %}
+
+{% block title %}{{ resource.meta.title }}{% endblock %}
+
+
+{% block body %}
+
+<div class="a-card" style="position: relative">
+
+{% if resource.prev_by_title %}
+<a id="previous-card" href="{{ content_url(resource.prev_by_title.url) }}" title="{{ resource.prev_by_title.meta.title }}"><span>&#9664;</span></a>
+{% endif %}
+
+{% if resource.next_by_title %}
+<a id="next-card" href="{{ content_url(resource.next_by_title.url) }}" title="{{ resource.next_by_title.meta.title }}"><span>&#9654;</span></a>
+{% endif %}
+
+
+<div class="card-container">
+<div class="card-dummy"></div>
+<section class="card front {{ resource.meta.alignment }}">
+    <h1>{{ resource.meta.title }}</h1>
+
+    <div class="desc-container">
+        <section class="examples">
+            {% filter markdown|typogrify -%}
+            {% block examples %}{% endblock %}
+            {%- endfilter %}
+        </section>
+
+        <section class="usage">
+            <p>/used:/</p>
+            {% filter markdown|typogrify -%}
+            {% block usage %}{% endblock %}
+            {%- endfilter %}
+        </section>
+    </div>
+
+</section></div><div class="card-container"><div class="card-dummy"></div><section class="card back empty">
+
+    <div class="fnp-logo">
+        <a href="//nowoczesnapolska.org.pl/about-us/">
+            
+            
+            <img src="{{ media_url('img/logofnp.png') }}"
+                alt="Modern Poland Foundation">
+        </a>
+    </div>
+
+    <div class="right-desc-container">
+        <section class="recommendations">
+            <p>/recommendations:/</p>
+            {% filter markdown|typogrify -%}
+            {% block recommendations %}{% endblock %}
+            {%- endfilter %}
+        </section>
+    </div>
+
+</section></div>
+
+</div>
+
+
+<script type="application/javascript" src="{{ media_url('js/word_detail.js') }}" charset="utf-8"></script>
+
+{% endblock %}

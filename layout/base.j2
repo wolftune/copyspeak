@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% macro title() -%}
+    {% block title %}{% endblock %}
+{%- endmacro %}
+{% macro site_name() -%}CopySpeak.org{%- endmacro %}
+
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+       <title>{% block full_title %}{{ title() }} | {{ site_name() }}{% endblock %}</title>
+       <link rel="shortcut icon" type="image/png" href="{{ media_url("img/favicon.png") }}" />
+       <link rel="stylesheet" type="text/css" href="{{ media_url("css/base.css") }}" />
+
+        <meta charset="UTF-8" />
+        <meta property='og:url' content='{% block ogurl %}FIXME LINK TU{% endblock %}' />
+        <meta property='og:title' content='{% block og_title %}{{ title() }}{% endblock %}' />
+        <meta property='og:site_name' content='{{ site_name() }}' />
+        <meta property='og:description' content='{% block og_description %}{% endblock %}' />
+        <meta property='og:type' content='{% block og_type %}website{% endblock %}' />
+        <meta property='og:image' content='{% block og_image %}{% endblock %}' />
+        <meta property='og:locale' content='en_US' />
+    </head>
+    <body>
+        <header>
+            <a href="/">CopySpeak.org: How to talk about copyright?</a>
+
+<div id="buy">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RCTRCCV5QB3UC">
+<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+</form>
+</div>
+
+            <div style="clear: both"></div>
+        </header>
+
+        {% block body %}{% endblock %}
+
+        <footer>
+            {% include "footer.j2" %}
+        </footer>
+
+        {% include "piwik.j2" %}
+    </body>
+</html>

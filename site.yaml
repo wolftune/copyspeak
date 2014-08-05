@@ -1,0 +1,48 @@
+plugins:
+    - hyde.ext.plugins.meta.MetaPlugin
+    - hyde.ext.plugins.meta.AutoExtendPlugin
+    - hyde.ext.plugins.urls.UrlCleanerPlugin
+    - hyde.ext.plugins.meta.GrouperPlugin
+    - hyde.ext.plugins.meta.SorterPlugin
+    - hyde.ext.plugins.structure.FlattenerPlugin
+    - hyde.ext.plugins.css.SassyCSSPlugin
+    - gzipper.GzipperPlugin
+meta:
+    nodemeta: meta.yaml
+urlcleaner:
+    index_file_names:
+        - index.html
+    strip_extensions:
+        - html
+    append_slash: true
+sorter:
+    title:
+        attr:
+            - url
+        filters:
+            source.kind: html
+            meta.listable: true
+        circular: true
+grouper:
+    alignment:
+        sorter: title
+        groups:
+            - name: lawful
+            - name: neutral
+            - name: chaotic
+flattener:
+    items:
+        - source: words
+          target: ""
+gzipper:
+    extensions:
+        - html
+        - css
+        - js
+publisher:
+    default:
+        type: hyde.ext.publishers.ssh.SSH
+        username: prawokultury
+        server: giewont.icm.edu.pl
+        target: /srv/copyspeak.org/www/
+        opts: -r -v --delete

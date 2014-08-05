@@ -1,0 +1,13 @@
+/deploy
+*~
+.*.swp
+.hyde_deps
+
+# Mac OS X garbage
+.DS_Store
+
+# Windows garbage
+thumbs.db
+
+.sass-cache
+
